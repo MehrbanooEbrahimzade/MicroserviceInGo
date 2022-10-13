@@ -1,0 +1,35 @@
+//protoc --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=paths=source_relative users/users.proto
+syntax = "proto3";
+package user;
+option go_package = "github.com/MehrbanooEbrahimzade/MicroserviceInGo/user;user";
+
+message User {
+  string ID = 1;
+  string userName = 2;
+  string email = 3;
+  string mobileNo = 4;
+  string birthDate = 5;
+  string password = 6;
+}
+
+message CreateUserReq {
+  User user = 1;
+}
+
+message CreateUserRes {
+  string ID = 1;
+}
+
+message ReadAllReq {}
+
+message ReadAllRes {
+  User user = 1;
+}
+
+service UserService {
+  rpc Create(CreateUserReq) returns (CreateUserRes);
+  rpc ReadAll(ReadAllReq) returns (stream ReadAllRes);
+}
+
+
+
