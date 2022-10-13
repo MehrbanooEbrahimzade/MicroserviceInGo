@@ -1,0 +1,11 @@
+{
+  "level": "debug",
+  "port": 9090,
+  "allowed-headers": ["Accept", "Authorization", "Content-Type", "X-CSRF-Token"],
+  "allowed-origins": ["http://*", "https://*"],
+  "allowed-methods": ["GET", "POST", "PUT", "DELETE"],
+  "exposed-headers": ["Link"],
+  "max-age": 300,
+  "media-port": "9092",
+  "users-port": "9093"
+}
