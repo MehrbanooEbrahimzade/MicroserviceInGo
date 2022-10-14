@@ -23,6 +23,10 @@ func main() {
 	pb.RegisterUserServiceServer(factory.GrpcServer, factory.GrpcHandler)
 	log.Printf("server listening at %v", lis.Addr())
 
+	if err := factory.GrpcServer.Serve(lis); err != nil {
+		panic("Failed to serve : " + err.Error())
+	}
+
 	if err != nil {
 		log.Println(err)
 	}
